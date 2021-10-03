@@ -34,7 +34,14 @@ export default function Output({ fields }) {
     let count = 1;
     fields.steps.forEach((step) => {
       microData.push(
-        generateHowToStep(count, step.name, step.url, step.directions)
+        generateHowToStep(
+          count,
+          step.name,
+          step.url,
+          step.directions,
+          step.imgSrc,
+          step.imgAlt
+        )
       );
       count++;
     });
