@@ -6,8 +6,12 @@ import generateTotalTime from "../generators/generateTotalTime";
 import generateHowToTool from "../generators/generateHowToTool";
 import generateHowToSupply from "../generators/generateHowToSupply";
 import generateHowToStep from "../generators/generateHowToStep";
+import generateName from "../generators/generateName";
 export default function Output({ fields }) {
   let microData = [];
+  if (fields.title.length) {
+    microData.push(generateName(fields.title));
+  }
   if (fields.estimatedCost) {
     microData.push(generateEstimatedCost(fields.estimatedCost));
   }

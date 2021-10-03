@@ -4,6 +4,7 @@ import Input from "./components/input";
 import Output from "./components/output";
 class App extends Component {
   state = {
+    title: "",
     estimatedTimeInterval: "minutes",
     estimatedTimeDuration: "",
     estimatedCost: "",
@@ -12,6 +13,7 @@ class App extends Component {
     includesNecessaryItems: false,
     includesSteps: false,
   };
+  updateTitle = (title) => this.setState({ title });
   updateEstimatedCost = (cost) => this.setState({ estimatedCost: cost });
   updateEstimatedTimeDuration = (duration) =>
     this.setState({ estimatedTimeDuration: duration });
@@ -98,9 +100,10 @@ class App extends Component {
           height: "100%",
         }}
       >
-        <div style={{ width: "50%", height: "100%" }}>
+        <div style={{ width: "80%", height: "100%" }}>
           <Input
             fields={this.state}
+            updateTitle={this.updateTitle}
             updateEstimatedCost={this.updateEstimatedCost}
             updateEstimatedTimeDuration={this.updateEstimatedTimeDuration}
             updateEstimatedTimeInterval={this.updateEstimatedTimeInterval}
@@ -117,7 +120,7 @@ class App extends Component {
             removeDirection={this.removeDirection}
           />
         </div>
-        <div style={{ width: "50%", height: "100%" }}>
+        <div style={{ width: "20%", height: "100%" }}>
           <Output fields={this.state} />
         </div>
       </div>
