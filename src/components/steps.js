@@ -3,9 +3,10 @@ import Step from "./step";
 export default function Steps(props) {
   return (
     <div>
-      {props.steps.map((step) => (
+      {props.steps.map((step, index) => (
         <Step
           key={step.id}
+          rank={index}
           updateStepTextInput={props.updateStepTextInput}
           updateStepUrl={props.updateStepUrl}
           addDirection={props.addDirection}
@@ -15,6 +16,7 @@ export default function Steps(props) {
           updateDirection={props.updateDirection}
           removeDirection={props.removeDirection}
           step={step}
+          removeStep={props.removeStep}
         />
       ))}
       <Button mod="positive" clickHandler={props.addStep}>

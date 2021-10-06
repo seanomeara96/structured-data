@@ -60,6 +60,7 @@ export default class Input extends Component {
               <Steps
                 steps={this.props.fields.steps}
                 addStep={this.props.addStep}
+                removeStep={this.props.removeStep}
                 updateStepTextInput={this.props.updateStepTextInput}
                 addNewDirection={this.props.addNewDirection}
                 updateDirection={this.props.updateDirection}

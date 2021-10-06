@@ -1,9 +1,9 @@
 import Button from "./button";
 export default function Step(props) {
-  const { id, name, rank, url, directions, imgSrc, imgAlt } = props.step;
+  const { id, name, url, directions, imgSrc, imgAlt } = props.step;
   return (
     <div>
-      <h3>{`Step ${rank + 1}`}</h3>
+      <h3>{`Step ${props.rank + 1}`}</h3>
       <div className="two fields">
         <div className="field">
           <label>Step Title</label>
@@ -79,6 +79,12 @@ export default function Step(props) {
       <div style={{ margin: "1rem 0" }}>
         <Button mod="positive" clickHandler={() => props.addNewDirection(id)}>
           Add Direction
+        </Button>
+        <Button
+          mod="negative"
+          clickHandler={() => props.removeStep(props.step.id)}
+        >
+          Remove This Step
         </Button>
       </div>
     </div>

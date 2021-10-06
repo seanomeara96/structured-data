@@ -61,7 +61,6 @@ class App extends Component {
   addStep = () => {
     const newStep = {
       id: "step-id" + parseInt(Math.random() * 1000),
-      rank: this.state.steps.length,
       name: "",
       url: "",
       imgSrc: "",
@@ -69,6 +68,12 @@ class App extends Component {
       directions: [this.newDirection()],
     };
     this.setState({ steps: [...this.state.steps, newStep] });
+  };
+  removeStep = (stepId) => {
+    console.log("remove step", stepId);
+    let steps = [...this.state.steps];
+    steps = steps.filter((i) => i.id !== stepId);
+    this.setState({ steps });
   };
   updateStepTextInput = (id, inputName, text) => {
     let stepsList = [...this.state.steps];
@@ -114,6 +119,7 @@ class App extends Component {
             removeNecessity={this.removeNecessity}
             includeSteps={this.includeSteps}
             addStep={this.addStep}
+            removeStep={this.removeStep}
             addNewDirection={this.addNewDirection}
             updateStepTextInput={this.updateStepTextInput}
             updateDirection={this.updateDirection}
