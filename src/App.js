@@ -105,7 +105,7 @@ class App extends Component {
           height: "100%",
         }}
       >
-        <div style={{ width: "80%", height: "100%" }}>
+        <div style={{ width: "80%", height: "100%", overflowX: "scroll" }}>
           <Input
             fields={this.state}
             updateTitle={this.updateTitle}
